@@ -73,10 +73,10 @@ h6 {
 	font-weight: 400;
 }
 /* NULL STYLES END*/
-body > #root {
+body > #root > main {
 	min-height: 100vh;
 	width: 100%;
-	background-color: bisque;
+
 	color: #171a21;
 	line-height: 1.2;
 }
