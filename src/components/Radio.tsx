@@ -2,7 +2,7 @@ import MuiRadio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { ControlContext } from "../context";
 
 const Radio = () => {
@@ -42,4 +42,4 @@ const Radio = () => {
 	);
 };
 
-export default Radio;
+export default memo(Radio);

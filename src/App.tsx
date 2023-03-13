@@ -1,9 +1,9 @@
-import Chart from "./components/Chart";
+import ChartController from "./components/ChartController";
 
 function App() {
 	return (
 		<main>
-			<Chart />
+			<ChartController />
 		</main>
 	);
 }

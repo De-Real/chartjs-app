@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ControlContext } from "../context";
+import Chart from "./Chart";
 import Input from "./Input";
 import Radio from "./Radio";
 import { StyledChartController } from "./styles/ChartController.styled";
 
-type ChartControllerProps = {
-	children: React.ReactNode;
-};
+const ChartController = () => {
+	const { chartType, axis } = useContext(ControlContext);
 
-const ChartController = ({ children }: ChartControllerProps) => {
 	return (
 		<StyledChartController>
-			<Input label="X axis label" dir="x" />
-			<Input label="Y axis label" dir="y" />
-			{children}
+			<Input label="X axis label" dir="x" initialValue="Feb, Mar, Apr, May" />
+			<Input label="Y axis label" dir="y" initialValue="19, 30, 10, 13" />
+			<Chart chartType={chartType} axis={axis} />
 			<Radio />
 		</StyledChartController>
 	);

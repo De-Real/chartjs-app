@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { ControlContext } from ".";
 
-interface Axis {
-	id: string;
-	xAxis: string[];
-	yAxis: number[];
-}
-
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
-	const [xValue, setXValue] = useState(""); //Strings
-	const [yValue, setYValue] = useState(""); //Numbers
+	const [xValue, setXValue] = useState("Feb, Mar, Apr, May");
+	const [yValue, setYValue] = useState("19, 30, 10, 13");
 
 	const [chartType, setChartType] = useState<"bar" | "line">("bar");
 

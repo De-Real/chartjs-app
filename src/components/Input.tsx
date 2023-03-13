@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { ControlContext } from "../context";
 import { InputDiv } from "./styles/Input.styled";
 
-type InputProps = { label: string; dir: "x" | "y" };
+type InputProps = { label: string; dir: "x" | "y"; initialValue: string };
 
-const Input = ({ label, dir }: InputProps) => {
-	const [inputValue, setInputValue] = useState("");
+const Input = ({ label, dir, initialValue }: InputProps) => {
+	const [inputValue, setInputValue] = useState(initialValue);
 
 	const { changeXValue, changeYValue } = useContext(ControlContext);
 
@@ -23,10 +23,10 @@ const Input = ({ label, dir }: InputProps) => {
 
 	return (
 		<InputDiv>
-			<label>{label}</label>
+			<label>{label + " (you can change this value)"}</label>
 			<input value={inputValue} onChange={valueChangeHandler} />
 		</InputDiv>
 	);
 };
 
-export default Input;
+export default memo(Input);
