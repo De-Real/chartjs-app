@@ -1,31 +1,33 @@
-import React, { memo, useContext, useState } from "react";
+import React, { memo, useContext, useState, useRef } from "react";
 import { ControlContext } from "../context";
-import { InputDiv } from "./styles/Input.styled";
+import { InputForm } from "./styles/Input.styled";
 
 type InputProps = { label: string; dir: "x" | "y"; initialValue: string };
 
 const Input = ({ label, dir, initialValue }: InputProps) => {
-	const [inputValue, setInputValue] = useState(initialValue);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const { changeXValue, changeYValue } = useContext(ControlContext);
 
-	const valueChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const axisValue = (event.target as HTMLInputElement).value;
+	const submitHandler = (event: React.SyntheticEvent) => {
+		event.preventDefault();
 
-		setInputValue(axisValue);
+		const inputValue = inputRef.current?.value;
+
+		if (!inputValue) return;
 
 		if (dir === "x") {
-			changeXValue(axisValue);
+			changeXValue(inputValue);
 		} else {
-			changeYValue(axisValue);
+			changeYValue(inputValue);
 		}
 	};
 
 	return (
-		<InputDiv>
+		<InputForm onSubmit={submitHandler} onBlur={submitHandler}>
 			<label>{label + " (you can change this value)"}</label>
-			<input value={inputValue} onChange={valueChangeHandler} />
-		</InputDiv>
+			<input ref={inputRef} defaultValue={initialValue} />
+		</InputForm>
 	);
 };
 

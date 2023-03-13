@@ -4,18 +4,16 @@ import { IChartData } from "../../types/chart-data";
 
 function LineChart({ chartData }: { chartData: IChartData }) {
 	return (
-		<div>
-			<Line
-				data={chartData}
-				options={{
-					plugins: {
-						legend: {
-							display: false,
-						},
+		<Line
+			data={chartData}
+			options={{
+				plugins: {
+					legend: {
+						display: false,
 					},
-				}}
-			/>
-		</div>
+				},
+			}}
+		/>
 	);
 }
 export default LineChart;

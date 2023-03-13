@@ -39,7 +39,7 @@ const Chart = ({ chartType, axis }: ChartProps) => {
 		chart = <LineChart chartData={chartData} />;
 	}
 
-	return <>{chart}</>;
+	return <div>{chart}</div>;
 };
 
 export default memo(Chart);

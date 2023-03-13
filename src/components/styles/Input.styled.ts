@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputDiv = styled.div`
+export const InputForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -16,8 +16,8 @@ export const InputDiv = styled.div`
 		transition: all 0.2s ease 0s;
 		&:hover,
 		&:focus {
-			color: #00008B;
-			border: 1px solid #00008B;
+			color: #00008b;
+			border: 1px solid #00008b;
 		}
 	}
 `;
