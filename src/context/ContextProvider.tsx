@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ControlContext } from ".";
+import { chartType } from "../types/chart-types";
 
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
 	const [xValue, setXValue] = useState("Feb, Mar, Apr, May");
 	const [yValue, setYValue] = useState("19, 30, 10, 13");
-
-	const [chartType, setChartType] = useState<"bar" | "line">("bar");
+	const [chartType, setChartType] = useState<chartType>("bar");
 
 	const changeXValue = (value: string) => {
 		setXValue(value);
@@ -15,7 +15,7 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
 		setYValue(value);
 	};
 
-	const changeChartType = (value: "bar" | "line") => {
+	const changeChartType = (value: chartType) => {
 		setChartType(value);
 	};
 

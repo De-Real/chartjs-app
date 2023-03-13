@@ -3,11 +3,13 @@ import Chartjs from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import LineChart from "./Charts/LineChart";
 import { memo, useMemo } from "react";
+import { chartType } from "../types/chart-types";
+import { PieChart } from "./Charts/PieChart";
 
 Chartjs.register(CategoryScale);
 
 type ChartProps = {
-	chartType: "bar" | "line";
+	chartType: chartType;
 	axis: { x: string[]; y: string[] };
 };
 
@@ -37,6 +39,10 @@ const Chart = ({ chartType, axis }: ChartProps) => {
 
 	if (chartType === "line") {
 		chart = <LineChart chartData={chartData} />;
+	}
+
+	if (chartType === "pie") {
+		chart = <PieChart chartData={chartData} />;
 	}
 
 	return <div>{chart}</div>;

@@ -100,3 +100,9 @@ main {
 	justify-content: center;
 	padding: 50px 0;
 }
+
+@media (max-width: 542px) {
+	main {
+		padding: 0;
+	}
+}

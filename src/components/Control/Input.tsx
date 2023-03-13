@@ -1,6 +1,6 @@
-import React, { memo, useContext, useState, useRef } from "react";
-import { ControlContext } from "../context";
-import { InputForm } from "./styles/Input.styled";
+import React, { memo, useContext, useRef } from "react";
+import { ControlContext } from "../../context";
+import { InputForm } from "../styles/Input.styled";
 
 type InputProps = { label: string; dir: "x" | "y"; initialValue: string };
 
@@ -9,6 +9,7 @@ const Input = ({ label, dir, initialValue }: InputProps) => {
 
 	const { changeXValue, changeYValue } = useContext(ControlContext);
 
+	//handler is called when user press Enter or leave input (lose focus);
 	const submitHandler = (event: React.SyntheticEvent) => {
 		event.preventDefault();
 

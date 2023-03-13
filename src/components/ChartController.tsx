@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { ControlContext } from "../context";
 import Chart from "./Chart";
-import Input from "./Input";
-import Radio from "./Radio";
+import Input from "./Control/Input";
+import Radio from "./Control/Radio";
 import { StyledChartController } from "./styles/ChartController.styled";
 
 const ChartController = () => {
